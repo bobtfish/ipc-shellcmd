@@ -4,7 +4,7 @@ use strict;
 use String::ShellQuote qw(shell_quote);
 use Carp qw(croak);
 
-head1 NAME
+=head1 NAME
 
   IPC::ShellCmd::ShBase - Base class for shell commands
 
