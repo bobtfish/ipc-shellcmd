@@ -5,7 +5,7 @@ use Carp qw(carp croak);
 use Scalar::Util;
 use IO::Pipe;
 use POSIX qw(:sys_wait_h);
-BEGIN { require 5.008004; } # May work with lower, unwilling to support unless you provide patches :)
+use 5.008004; # May work with lower, unwilling to support unless you provide patches :)
 
 our $VERSION = '0.001';
 $VERSION = eval $VERSION;
@@ -14,7 +14,7 @@ $IPC::ShellCmd::BufferLength = 16384;
 
 =head1 NAME
 
-  IPC::ShellCmd - Run a command with a given environment and capture output
+IPC::ShellCmd - Run a command with a given environment and capture output
 
 =head1 SYNOPSIS
 
