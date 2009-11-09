@@ -9,6 +9,9 @@ assertos qw/ Unix /;
 all_from 'lib/IPC/ShellCmd.pm';
 readme_from 'lib/IPC/ShellCmd.pm';
 
+requires_external_bin 'ssh';
+requires_external_bin 'sudo';
+
 requires 'IO::Pipe';
 requires 'Scalar::Util';
 requires 'String::ShellQuote';
