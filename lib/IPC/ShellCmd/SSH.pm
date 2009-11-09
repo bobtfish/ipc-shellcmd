@@ -124,15 +124,13 @@ sub chain {
 
 I don't know of any, but that doesn't mean they're not there.
 
-=head1 AUTHOR
+=head1 AUTHORS
 
-    Matthew Byng-Maddick
-        <matthew.byng-maddick@bbc.co.uk>
-        <mbm@colondot.net>
+See L<IPC::ShellCmd> for authors.
 
-=head1 SEE ALSO
+=head1 LICENSE
 
-L<IPC::ShellCmd>
+See L<IPC::ShellCmd> for the license.
 
 =cut
 

@@ -4,6 +4,22 @@ use strict;
 use String::ShellQuote qw(shell_quote);
 use Carp qw(croak);
 
+head1 NAME
+
+  IPC::ShellCmd::ShBase - Base class for shell commands
+
+=head1 SYNOPSIS
+
+  package IPC::ShellCmd::Other;
+  use base qw/IPC::ShellCmd::ShBase/;
+  # Note that this is an abstract class..
+
+=head1 DESCRIPTION
+
+Abstract base class for other IPC::ShellCmd command types.
+
+=cut
+
 sub new {
     my $package = shift;
     my %args = @_;
@@ -52,5 +68,19 @@ sub generate_sh_cmd {
 
     return $cmd_string;
 }
+
+=head1 BUGS
+
+I don't know of any, but that doesn't mean they're not there.
+
+=head1 AUTHORS
+
+See L<IPC::ShellCmd> for authors.
+
+=head1 LICENSE
+
+See L<IPC::ShellCmd> for the license.
+
+=cut
 
 1;

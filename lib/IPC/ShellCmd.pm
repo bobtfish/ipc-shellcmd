@@ -5,6 +5,10 @@ use Carp qw(carp croak);
 use Scalar::Util;
 use IO::Pipe;
 use POSIX qw(:sys_wait_h);
+BEGIN { require 5.008004; } # May work with lower, unwilling to support unless you provide patches :)
+
+our $VERSION = '0.001';
+$VERSION = eval $VERSION;
 
 $IPC::ShellCmd::BufferLength = 16384;
 
@@ -1005,15 +1009,23 @@ Apart from the ones that are probably in there and that I don't know
 about, this is a very UNIX-centric view of the world, it really should
 cope with Win32 concepts etc.
 
-=head1 AUTHOR
-
-    Matthew Byng-Maddick
-	<matthew.byng-maddick@bbc.co.uk>
-	<mbm@colondot.net>
-
 =head1 SEE ALSO
 
 L<IPC::ShellCmd::Generic>, L<IPC::ShellCmd::Sudo>, L<IPC::ShellCmd::SSH>, L<IO::Select>, L<IPC::Open3>
+
+=head1 AUTHORS
+
+    Matthew Byng-Maddick <matthew.byng-maddick@bbc.co.uk> <mbm@colondot.net>
+
+    Tomas Doran (t0m) <bobtfish@bobtfish.net>
+
+=head1 COPYRIGHT
+
+Copyright (c) 2009 the British Broadcasting Corperation.
+
+=head1 LICENSE
+
+This library is free software and may be distributed under the same terms as perl itself.
 
 =cut
 
