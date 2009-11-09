@@ -40,26 +40,26 @@ are set in the child, working directories set etc.
 
 It aims to provide a reasonable interface for setting up command execution
 environment (working directory, environment variables, stdin, stdout and
-stderr redirection if necessary), but allowing for ssh and sudo and magicing
+stderr redirection if necessary), but allowing for ssh and sudo and magicking
 in the appropriate shell quoting.
 
 It tries to be flexible about how you might want to capture output, exit
 status and other such, but in such a way as it's hopefully easy to understand
 and make it work.
 
-Setup method calls are chainable in a L<File::Find::Rule> kind of a way.
+Setup method calls are chain-able in a L<File::Find::Rule> kind of a way.
 
 =head2 my I<$isc> = IPC::ShellCmd->B<new>(\I<@cmd>, I<%opts>)
 
 Creates a new IPC::ShellCmd object linking to the command and arguments. Possible options:
 
-=over 4
+=over
 
-=item -nowarn
+=item C<<-nowarn>>
 
 Don't throw warnings for overwriting values that have already been set
 
-=item -debug
+=item C<<-debug>>
 
 Set the debug level
 
@@ -231,18 +231,18 @@ into the chain. Returns I<> so that it can be chained.
 
 Valid options are:
 
-=over 4
+=over
 
-=item -include-stdin
+=item C<<-include-stdin>>
 
-If set, and stdin is a filename (rather than a pipe, open filehandle, or
+If set, and stdin is a file name (rather than a pipe, open filehandle, or
 other type of descriptor) then the file will be included in the chain.  
 
-=item -include-stdout
+=item C<<-include-stdout>>
 
 As above but with stdout.
 
-=item -include-stderr
+=item C<<-include-stderr>>
 
 As above but with stderr.
 
@@ -310,24 +310,24 @@ been warned.
 The 2 argument form takes a type and then a ref, handle or other.
 Valid types:
 
-=over 4
+=over 
 
-=item -inherit
+=item C<<-inherit>>
 
 The argument to this is ignored. If specified this takes stdin
 from whatever the caller is reading from.
 
-=item -file
+=item C<<-file>>
 
 The argument to this is a perl filehandle.
 
-=item -fd
+=item C<<-fd>>
 
 The argument to this is a system file descriptor.
 
-=item -filename
+=item C<<-filename>>
 
-The argument to this is a filename which is opened.
+The argument to this is a file name which is opened.
 
 =back
 
@@ -384,7 +384,7 @@ sub stdin {
 	    }
 	    elsif($_[0] eq "-filename") {
 	        if(!defined $_[1] || ref $_[1] || $_[1] =~ /\000/) {
-		        croak "Argument to -filename wasn't a valid filename";
+		        croak "Argument to -filename wasn't a valid file name";
 	        }
 	        $self->{stdin} = [filename => $_[1]];
 	        $self->{select}->[0] = 0;
@@ -431,7 +431,7 @@ to the B<stdin> method above.
 
 The 1 argument form takes either
 
-=over 4
+=over
 
 =item A scalar ref
 
@@ -448,24 +448,24 @@ of text to be appended which has been read from stdout/stderr.
 The 2 argument form takes a type and then a ref, handle or other.
 Valid types:
 
-=over 4
+=over
 
-=item -inherit
+=item C<<-inherit>>
 
 The argument to this is ignored. If specified this takes stdout/stderr
 from whatever the caller is set to.
 
-=item -file
+=item C<<-file>>
 
 The argument to this is a perl filehandle.
 
-=item -fd
+=item C<<-fd>>
 
 The argument to this is a system file descriptor.
 
-=item -filename
+=item C<<-filename>>
 
-The argument to this is a filename which is opened.
+The argument to this is a file name which is opened.
 
 =back
 
@@ -950,7 +950,7 @@ sub _select_wait {
                     push(@args, "-" . $fh, $self->{$fh}->[1]);
                     $file->{$fh} = 0;
                     # in this sub bit, because of $file->{fh}, this must be
-                    # a filename, so we can do the following.
+                    # a file name, so we can do the following.
                     $self->{$fh}->[1] = "/dev/null";
                 }
             }
@@ -976,7 +976,7 @@ sub _select_wait {
             }
         }
 
-        # as a side effect of this sub, we also end up transforming filenames and fds
+        # as a side effect of this sub, we also end up transforming file names and file descriptors
         # into file handles.
         for my $fh (qw(stdin stdout stderr)) {
             local $Carp::CarpLevel = 1;
@@ -1021,7 +1021,7 @@ L<IPC::ShellCmd::Generic>, L<IPC::ShellCmd::Sudo>, L<IPC::ShellCmd::SSH>, L<IO::
 
 =head1 COPYRIGHT
 
-Copyright (c) 2009 the British Broadcasting Corperation.
+Copyright (c) 2009 the British Broadcasting Corporation.
 
 =head1 LICENSE
 

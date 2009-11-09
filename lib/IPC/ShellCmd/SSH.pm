@@ -29,38 +29,38 @@ used inside of the B<chain_prog> method on a L<IPC::ShellCmd> object.
 
 The only required argument is the host.
 
-=over 4
+=over
 
-=item B<Host> I<REQUIRED>
+=item C<Host> I<REQUIRED>
 
 Specifies the host to ssh to. Since this is done by invoking the command-line
-ssh client, this can be a short hostname that is part of the local ssh config.
+ssh client, this can be a short host name that is part of the local ssh config.
 
-=item B<User>
+=item C<User>
 
-Specifies the username on the remote host
+Specifies the user name on the remote host.
 
-=item B<Port>
+=item C<Port>
 
-Specifies the port to connect to on the remote host
+Specifies the port to connect to on the remote host.
 
-=item B<ForwardAgent>
+=item C<ForwardAgent>
 
 If specified, then if true will enable agent forwarding (say for dealing with
 a bastion host), and if false will explicitly disable it. If not specified it
 will be the ssh default.
 
-=item B<ForwardX11>
+=item C<ForwardX11>
 
 If specified, then if true will enable X11 forwarding, and if false will disable
 it. If not specified, this will be the ssh default.
 
-=item B<AllocateTty>
+=item C<AllocateTty>
 
 If specified, then if true will force allocation of a tty, and if false will
 disable it. If not specified, this will be the ssh default.
 
-=item B<IdentityFile>
+=item C<IdentityFile>
 
 Specifies the ssh private key to use.
 

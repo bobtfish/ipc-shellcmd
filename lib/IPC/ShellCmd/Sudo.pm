@@ -28,13 +28,13 @@ various arguments that are going to be used to generate the command-line.
 Other methods on this are used by L<IPC::ShellCmd>, but it should only ever be
 used inside of the B<chain_prog> method on a L<IPC::ShellCmd> object.
 
-=over 4
+=over
 
-=item B<User>
+=item C<User>
 
-Specifies the username to sudo to
+Specifies the user name to C<sudo> to.
 
-=item B<SetHome>
+=item C<SetHome>
 
 If true, this will cause sudo to set up $ENV{HOME} for the new user,
 otherwise it will be that of the current user.

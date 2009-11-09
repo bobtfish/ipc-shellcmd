@@ -28,15 +28,15 @@ various arguments that are going to be used to generate the command-line.
 Other methods on this are used by L<IPC::ShellCmd>, but it should only ever be
 used inside of the B<chain_prog> method on a L<IPC::ShellCmd> object.
 
-=over 4
+=over
 
-=item B<Prog> I<REQUIRED>
+=item C<Prog> I<REQUIRED>
 
-The program to run, eg. tsocks, socksify, time
+The program to run, E.g. C<tsocks>, C<socksify>, C<time>.
 
-=item B<Args>
+=item C<Args>
 
-A set of arguments to the program before passing the command and args
+A set of arguments to the program before passing the command and args.
 
 =back
 

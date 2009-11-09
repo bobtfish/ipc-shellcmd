@@ -41,29 +41,29 @@ sub generate_sh_cmd {
     my $cmd_string = shell_quote(@$cmd);
 
     if(defined $args->{'-stdin'}) {
-	$cmd_string .= ' < ' . shell_quote($args->{'-stdin'});
+	    $cmd_string .= ' < ' . shell_quote($args->{'-stdin'});
     }
     if(defined $args->{'-stdout'}) {
-	$cmd_string .= ' > ' . shell_quote($args->{'-stdout'});
+	    $cmd_string .= ' > ' . shell_quote($args->{'-stdout'});
     }
     if(defined $args->{'-stderr'}) {
-	$cmd_string .= ' 2> ' . shell_quote($args->{'-stderr'});
+	    $cmd_string .= ' 2> ' . shell_quote($args->{'-stderr'});
     }
 
     if($args->{'-env'}) {
-	for my $k (keys %{$args->{'-env'}}) {
-	    $cmd_string = $k . "=" . shell_quote($args->{'-env'}->{$k}) . ' ' .
-		$cmd_string;
-	}
+	    for my $k (keys %{$args->{'-env'}}) {
+	        $cmd_string = $k . "=" . shell_quote($args->{'-env'}->{$k}) . ' ' .
+		        $cmd_string;
+	    }
     }
 
     if(defined $args->{'-umask'}) {
-	$cmd_string = sprintf('umask 0%o && %s', $args->{'-umask'}, $cmd_string);
+	    $cmd_string = sprintf('umask 0%o && %s', $args->{'-umask'}, $cmd_string);
     }
 
     if(defined $args->{'-wd'}) {
-	$cmd_string = sprintf('cd %s && %s', shell_quote($args->{'-wd'}),
-	    $cmd_string);
+	    $cmd_string = sprintf('cd %s && %s', shell_quote($args->{'-wd'}),
+	        $cmd_string);
     }
 
     return $cmd_string;
