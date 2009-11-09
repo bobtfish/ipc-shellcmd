@@ -2,6 +2,9 @@ use inc::Module::Install 0.91;
 use Module::Install::ReadmeFromPod;
 use Module::Install::AuthorRequires;
 use Module::Install::AuthorTests;
+use Module::Install::AssertOS;
+
+assertos qw/ Unix /;
 
 all_from 'lib/IPC/ShellCmd.pm';
 readme_from 'lib/IPC/ShellCmd.pm';
