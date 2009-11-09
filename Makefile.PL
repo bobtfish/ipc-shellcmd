@@ -2,6 +2,7 @@ use inc::Module::Install 0.91;
 use Module::Install::ReadmeFromPod;
 
 all_from 'lib/IPC/ShellCmd.pm';
+readme_from 'lib/IPC/ShellCmd.pm';
 
 requires 'IO::Pipe';
 requires 'Scalar::Util';
