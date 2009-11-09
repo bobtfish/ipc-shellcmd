@@ -12,4 +12,6 @@ do {
     IPC::ShellCmd::Sudo
 /;
 
+diag("Testing $IPC::ShellCmd::VERSION");
+
 done_testing;
