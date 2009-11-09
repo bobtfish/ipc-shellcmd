@@ -10,11 +10,12 @@ use base qw(IPC::ShellCmd::ShBase);
 
 =head1 SYNOPSIS
 
-  $cmd_obj->chain_prog( IPC::ShellCmd::SSH->new(
-	                User => 'cpanbuild',
-                        Host => '10.0.0.1'
-                        ) );
-
+    $cmd_obj->chain_prog(
+        IPC::ShellCmd::SSH->new(
+	        User => 'cpanbuild',
+            Host => '10.0.0.1'
+        )
+    );
 
 =head1 DESCRIPTION
 
@@ -89,31 +90,31 @@ sub chain {
     my @ssh_args = ('ssh');
 
     push (@ssh_args, "-l", $self->{args}->{User})
-	if(defined $self->{args}->{User});
+	    if(defined $self->{args}->{User});
 
     push (@ssh_args, "-p", $self->{args}->{Port})
-	if(defined $self->{args}->{Port});
+	    if(defined $self->{args}->{Port});
 
     push (@ssh_args, "-i", $self->{args}->{IdentityFile})
-	if(defined $self->{args}->{IdentityFile});
+	    if(defined $self->{args}->{IdentityFile});
 
     push (@ssh_args, "-A")
-	if(defined $self->{args}->{ForwardAgent} && $self->{args}->{ForwardAgent});
+	    if(defined $self->{args}->{ForwardAgent} && $self->{args}->{ForwardAgent});
 
     push (@ssh_args, "-a")
-	if(defined $self->{args}->{ForwardAgent} && !$self->{args}->{ForwardAgent});
+	    if(defined $self->{args}->{ForwardAgent} && !$self->{args}->{ForwardAgent});
 
     push (@ssh_args, "-X")
-	if(defined $self->{args}->{ForwardX11} && $self->{args}->{ForwardX11});
+	    if(defined $self->{args}->{ForwardX11} && $self->{args}->{ForwardX11});
 
     push (@ssh_args, "-x")
-	if(defined $self->{args}->{ForwardX11} && !$self->{args}->{ForwardX11});
+	    if(defined $self->{args}->{ForwardX11} && !$self->{args}->{ForwardX11});
 
     push (@ssh_args, "-t")
-	if(defined $self->{args}->{AllocateTty} && $self->{args}->{AllocateTty});
+	    if(defined $self->{args}->{AllocateTty} && $self->{args}->{AllocateTty});
 
     push (@ssh_args, "-T")
-	if(defined $self->{args}->{AllocateTty} && !$self->{args}->{AllocateTty});
+	    if(defined $self->{args}->{AllocateTty} && !$self->{args}->{AllocateTty});
 
     push (@ssh_args, $self->{args}->{Host}, $cmd_string);
 

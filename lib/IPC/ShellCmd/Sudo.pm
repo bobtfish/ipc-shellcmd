@@ -10,10 +10,12 @@ use base qw(IPC::ShellCmd::ShBase);
 
 =head1 SYNOPSIS
 
-  $cmd_obj->chain_prog( IPC::ShellCmd::Sudo->new(
-	                User => 'cpanbuild',
-                        SetHome => 1
-                        ) );
+    $cmd_obj->chain_prog(
+        IPC::ShellCmd::Sudo->new(
+	        User => 'cpanbuild',
+            SetHome => 1,
+        )
+    );
 
 
 =head1 DESCRIPTION
@@ -41,15 +43,6 @@ otherwise it will be that of the current user.
 
 =cut
 
-sub new {
-    my $package = shift;
-    my %args = @_;
-
-    my $self = bless { args => \%args }, $package;
-
-    return $self;
-}
-
 sub chain {
     my $self = shift;
     my $cmd = shift;
@@ -60,10 +53,10 @@ sub chain {
     my @sudo_args = ('sudo');
 
     push (@sudo_args, "-u", $self->{args}->{User})
-	if(defined $self->{args}->{User});
+	    if(defined $self->{args}->{User});
 
     push (@sudo_args, "-H")
-	if(defined $self->{args}->{SetHome} && $self->{args}->{SetHome});
+	    if(defined $self->{args}->{SetHome} && $self->{args}->{SetHome});
 
     push (@sudo_args, "sh", "-c", $cmd_string);
 

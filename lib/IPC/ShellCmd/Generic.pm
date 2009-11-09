@@ -10,10 +10,12 @@ use base qw(IPC::ShellCmd::ShBase);
 
 =head1 SYNOPSIS
 
-  $cmd_obj->chain_prog( IPC::ShellCmd::Generic->new(
-	                Prog => 'time',
+    $cmd_obj->chain_prog(
+        IPC::ShellCmd::Generic->new(
+	        Prog => 'time',
 			Args => ["-p"],
-                        ) );
+        )
+    );
 
 
 =head1 DESCRIPTION
@@ -62,7 +64,7 @@ sub chain {
     my @generic = ($self->{args}->{Prog});
 
     push (@generic, @{$self->{args}->{Args}})
-	if(defined $self->{args}->{Args});
+	    if(defined $self->{args}->{Args});
 
     push (@generic, "sh", "-c", $cmd_string);
 
