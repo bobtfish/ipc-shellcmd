@@ -19,7 +19,7 @@ IPC::ShellCmd - Run a command with a given environment and capture output
 =head1 SYNOPSIS
 
     my $isc = IPC::ShellCmd->new(["perl", "Makefile.PL"])
-	    ->working_directory("/path/to/IPC_ShellCmd-0.01")
+	    ->working_dir("/path/to/IPC_ShellCmd-0.01")
 	    ->stdin(-filename => "/dev/null")
 	    ->add_envs(PERL5LIB => "/home/mbm/cpanlib/lib/perl5")
 	    ->chain_prog(
